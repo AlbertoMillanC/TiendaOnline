@@ -17,6 +17,8 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = ('id','client','date_created','date_updated','order_status')
     search_fields = ('id','client','date_created','date_updated','order_status')
     list_filter = ('client','date_created','date_updated','order_status')
+    date_hierarchy = 'date_created'
+    
 
 
 admin.site.register(Client,ClientAdmin)
