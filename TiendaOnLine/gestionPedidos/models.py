@@ -17,7 +17,7 @@ class Client(models.Model):
     
         
     def __str__(self):
-        return ' id %s client %s  %s' % (self.id,self.name,self.surname)
+        return ' id %s Client %s  %s %s '(self.id,self.name,self.email)
 class Product(models.Model):
     name = models.CharField(max_length=50,verbose_name='producto')
     description = models.CharField(max_length=50,verbose_name='Descripcion')
@@ -26,7 +26,7 @@ class Product(models.Model):
     date_updated = models.DateField(default=date.today,verbose_name='Fecha de actualizacion')
     
     def __str__(self):
-        return 'Produc: %s  %s  %s  %s %s %s' % (self.id, self.name, self.description, self.price, self.date_created, self.date_updated)
+        return 'Product: %s  %s  %s  %s %s %s '(self.id, self.name, self.description, self.price, self.date_created, self.date_updated)
     
 class Order(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
@@ -35,6 +35,6 @@ class Order(models.Model):
     order_status = models.BooleanField(default=False)
     
     def __str__(self):
-        return ' %s  %s  %s  %s  %s' % (self.id, self.client, self.date_created, self.date_updated, self.order_status)
+        return 'Order  %s  %s  %s  %s ' (self.client, self.date_created, self.date_updated, self.order_status)
         
     
