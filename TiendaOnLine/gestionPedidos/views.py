@@ -30,4 +30,11 @@ def buscar(request):
     
     return HttpResponse(mensaje)
     
+def contacto(request):
     
+    if request.method == 'POST':
+        
+        return render(request,'gracias.html',{'mensaje':'Mensaje enviado correctamente'})
+    
+    return render(request, 'contacto.html')    
+
