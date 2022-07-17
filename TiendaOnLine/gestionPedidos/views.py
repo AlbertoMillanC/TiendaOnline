@@ -2,9 +2,7 @@ from multiprocessing.connection import Client
 from django.shortcuts import render
 from django.http import HttpResponse
 from gestionPedidos.models import Client, Product, Order
-
-# Create your views here.
-
+from gestionPedidos.forms import contactoforms
 
 def busqueda_productos(request):
 
@@ -32,10 +30,33 @@ def buscar(request):
     return HttpResponse(mensaje)
 
 
-def contacto(request):
+""""def contacto(request):
 
     if request.method == 'POST':
 
         return render(request, 'gracias.html', {'mensaje': 'Mensaje enviado correctamente'})
 
-    return render(request, 'contacto.html')
+    return render(request, 'contacto.html')"""
+
+def contacto(request):
+    
+    if request.method == 'POST':
+        form = contactoforms(request.POST)
+        
+        if form.is_valid():
+            
+            infForm = form.cleaned_data
+            
+            send_mail(infForm['asunto'], infForm['mensaje'], infForm['email'], 
+            infForm.get('email', ''),['yamarteatro@gmail.com'],)
+            
+            return render(request, 'gracias.html')
+    else:
+        form = contactoforms()
+        
+    return render(request, 'formulario_contacto.html', {'form': form})
+    
+    
+    
+            
+            
