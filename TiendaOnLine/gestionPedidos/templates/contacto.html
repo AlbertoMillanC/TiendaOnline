@@ -1,32 +1,26 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>contacto</title>
+    <link
+      rel="stylesheet"
+      href="css/style.css"
+      media="screen"
+      type="text/css"
+    />
+  </head>
 
-<html >
-<head>
-        <meta charset="UTF-8">
-        <title>contacto</title>
-        <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
-</head>
-        
-<body>
-
+  <body>
     <h1>contacto</h1>
     <form action="/contacto/" method="POST"> {% csrf_token %}
-        
-        
-        <p> asunto: <input type="text" name="asunto"> </p>
 
-        <p> email: <input type="text" name="email"> </p>
+      <p>asunto: <input type="text" name="asunto" /></p>
 
-        <p> mensaje: <Textarea name="mensaje" rows=15 cols=45> </textarea> </p>
+      <p>email: <input type="text" name="email" /></p>
 
-       
+      <p>mensaje: <textarea name="mensaje" rows="15" cols="45"> </textarea></p>
 
-        <input type="submit" value="enviar">
-            
-          
-    
+      <input type="submit" value="enviar" />
     </form>
-    
-</body>
-    
+  </body>
 </html>
-    
